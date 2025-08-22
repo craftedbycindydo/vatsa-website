@@ -107,7 +107,7 @@ export function PublicationsSection() {
         </div>
 
         {/* Research impact stats */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {[
             { 
               number: `${portfolioData.publications.length}`, 
@@ -131,24 +131,24 @@ export function PublicationsSection() {
             }
           ].map((stat, index) => (
             <Card key={index} className="text-center transition-all duration-300 hover:shadow-md scroll-hidden-scale" data-animate="scale-fade-gentle" data-delay={index * 100}>
-              <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-sm font-medium mb-1">{stat.label}</div>
-                <div className="text-xs text-muted-foreground">{stat.description}</div>
+              <CardContent className="pt-4 sm:pt-6 px-3 sm:px-6">
+                <div className="text-2xl sm:text-3xl font-bold text-primary mb-1 sm:mb-2">{stat.number}</div>
+                <div className="text-xs sm:text-sm font-medium mb-0.5 sm:mb-1">{stat.label}</div>
+                <div className="text-xs text-muted-foreground leading-tight">{stat.description}</div>
               </CardContent>
             </Card>
           ))}
         </div>
 
         {/* Research interests keywords */}
-        <div className="mt-16">
-          <h3 ref={keywordsHeaderRef} className="text-2xl font-bold text-center mb-8">Research Keywords</h3>
-          <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
+        <div className="mt-12 sm:mt-16">
+          <h3 ref={keywordsHeaderRef} className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">Research Keywords</h3>
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-4xl mx-auto px-2">
             {portfolioData.research.keywords.map((keyword, index) => (
               <Badge 
                 key={index} 
                 variant="outline" 
-                className="px-3 py-1 text-xs hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer"
+                className="px-2 py-1 sm:px-3 sm:py-1 text-xs hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer"
               >
                 {keyword}
               </Badge>

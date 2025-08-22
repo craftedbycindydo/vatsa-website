@@ -65,9 +65,9 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {/* Bio Section */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             <Card ref={bioCardRef}>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
@@ -155,7 +155,7 @@ export function AboutSection() {
           </div>
 
           {/* Contact & Quick Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <Card ref={contactCardRef}>
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
@@ -242,20 +242,20 @@ export function AboutSection() {
 
         {/* Skills Section */}
         <div>
-          <h3 ref={skillsHeaderRef} className="text-2xl font-bold text-center mb-8">Technical Skills</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h3 ref={skillsHeaderRef} className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">Technical Skills</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {skillCategories.map((skillGroup, index) => {
               const Icon = skillGroup.icon;
               return (
                 <Card key={index} className="transition-all duration-300 hover:shadow-lg scroll-hidden-scale" data-animate="scale-fade-gentle" data-delay={index * 100}>
-                  <CardHeader className="pb-4">
-                    <CardTitle className="flex items-center space-x-2 text-lg">
-                      <Icon className="h-5 w-5 text-primary" />
+                  <CardHeader className="pb-3 sm:pb-4">
+                    <CardTitle className="flex items-center space-x-2 text-base sm:text-lg">
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       <span>{skillGroup.category}</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {skillGroup.items.map((skill, i) => (
                         <Badge key={i} variant="outline" className="text-xs">
                           {skill}

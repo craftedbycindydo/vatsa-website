@@ -34,7 +34,7 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 ref={headerRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
             Professional Experience
           </h2>
@@ -43,17 +43,17 @@ export function ExperienceSection() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {sortedExperience.map((experience, index) => (
             <Card key={index} className="transition-all duration-300 hover:shadow-lg scroll-hidden" data-animate="card-entrance" data-delay={index * 150}>
               <CardHeader>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div className="flex-1">
-                    <CardTitle className="flex items-center gap-2 text-xl">
-                      <Building2 className="h-5 w-5 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                      <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       {experience.title}
                     </CardTitle>
-                    <CardDescription className="text-lg mt-1">
+                    <CardDescription className="text-base sm:text-lg mt-1">
                       {experience.company}
                     </CardDescription>
                   </div>
@@ -64,13 +64,13 @@ export function ExperienceSection() {
                     >
                       {experience.type}
                     </Badge>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
+                        <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         <span>{experience.period}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         <span>{experience.location}</span>
                       </div>
                     </div>
@@ -119,18 +119,18 @@ export function ExperienceSection() {
         </div>
 
         {/* Statistics */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-10 sm:mt-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
             { number: `${portfolioData.publications.length}+`, label: "Publications" },
             { number: `${portfolioData.projects.length}+`, label: "Research Projects" },
             { number: "5+", label: "Years Experience" },
             { number: "3+", label: "Institutions" }
           ].map((stat, index) => (
-            <div key={index} className="text-center group scroll-hidden-scale" data-animate="scale-fade-gentle" data-delay={index * 100}>
-              <div className="text-3xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">
+            <div key={index} className="text-center group scroll-hidden-scale p-3 sm:p-4 rounded-lg hover:bg-muted/20 transition-all duration-300" data-animate="scale-fade-gentle" data-delay={index * 100}>
+              <div className="text-2xl sm:text-3xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">
                 {stat.number}
               </div>
-              <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+              <div className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1 leading-tight">{stat.label}</div>
             </div>
           ))}
         </div>
