@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Palette } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 interface NavigationItem {
   name: string;
@@ -24,9 +23,6 @@ const navigation: NavigationItem[] = [
 export function FloatingNav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
-
-  const { theme, setTheme, themes } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,52 +108,8 @@ export function FloatingNav() {
           ))}
           
           {/* Theme Toggle */}
-          <div className="relative ml-1 sm:ml-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setThemeDropdownOpen(!themeDropdownOpen)}
-              className="rounded-full p-1 sm:p-2 hover:bg-muted shrink-0"
-            >
-              <Palette className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-            </Button>
-            
-            {themeDropdownOpen && (
-              <>
-                <div className="fixed inset-0 z-[55]" onClick={() => setThemeDropdownOpen(false)} />
-                <div className="absolute top-full right-0 mt-6 w-64 sm:w-80 bg-card/98 backdrop-blur-md rounded-xl shadow-2xl border border-border/50 z-[60] animate-in slide-in-from-top-2 duration-200 ring-1 ring-black/5">
-                  <div className="p-3 sm:p-4">
-                    <h3 className="text-xs sm:text-sm font-medium mb-2 sm:mb-3">Choose Theme</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2">
-                      {themes.map((themeOption) => (
-                        <button
-                          key={themeOption.name}
-                          onClick={() => {
-                            setTheme(themeOption.name);
-                            setThemeDropdownOpen(false);
-                          }}
-                          className={cn(
-                            "p-2 sm:p-3 rounded-lg border-2 transition-all duration-200 text-left",
-                            theme === themeOption.name
-                              ? "border-primary ring-2 ring-primary/20"
-                              : "border-border hover:border-primary/50"
-                          )}
-                          style={{
-                            background: `linear-gradient(135deg, ${themeOption.primary} 0%, ${themeOption.accent} 100%)`,
-                          }}
-                        >
-                          <div className="text-xs font-medium" style={{
-                            color: themeOption.isDark ? '#FFFFFF' : '#000000'
-                          }}>
-                            {themeOption.label}
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
+          <div className="ml-1 sm:ml-2">
+            <ThemeToggle />
           </div>
         </div>
       </nav>

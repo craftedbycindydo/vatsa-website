@@ -157,12 +157,14 @@ export const themeConfig = [
 ];
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<ThemeColors>('ocean-light');
+  const [theme, setTheme] = useState<ThemeColors>('lavender-dark');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as ThemeColors;
-    if (savedTheme && themeConfig.find(t => t.name === savedTheme)) {
+    if (savedTheme && (savedTheme === 'lavender-light' || savedTheme === 'lavender-dark')) {
       setTheme(savedTheme);
+    } else {
+      setTheme('lavender-dark');
     }
   }, []);
 
