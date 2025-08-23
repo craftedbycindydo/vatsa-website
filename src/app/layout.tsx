@@ -1,17 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bangers, Comfortaa, PT_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { ScrollAnimationScript } from "@/components/ScrollAnimationScript";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bangers = Bangers({
+  variable: "--font-bangers",
   subsets: ["latin"],
+  weight: "400",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const comfortaa = Comfortaa({
+  variable: "--font-comfortaa",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const ptSerif = PT_Serif({
+  variable: "--font-pt-serif",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -34,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${bangers.variable} ${comfortaa.variable} ${ptSerif.variable} antialiased`}
       >
         <ThemeProvider>
           {children}

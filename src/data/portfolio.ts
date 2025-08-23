@@ -6,7 +6,7 @@ export const portfolioData = {
     subtitle: "PhD in Computer Science | AI & Computer Vision Expert | 13+ Published Papers | Driving Innovation in Machine Learning & Data Science",
     institution: "Penn State Harrisburg",
     location: "United States",
-    email: "vsp5275@psu.edu",
+    email: "vvp5358@psu.edu",
     linkedin: "https://www.linkedin.com/in/vatsa-patel",
     website: "",
     bio: "Dr. Vatsa Patel is a PhD in Computer Science and AI & Computer Vision Expert with 10+ published papers. He is driving innovation in Machine Learning & Data Science as an Assistant Professor of Computer Science at Penn State Harrisburg. His research focuses on artificial intelligence, machine learning, and computer vision applications.",
