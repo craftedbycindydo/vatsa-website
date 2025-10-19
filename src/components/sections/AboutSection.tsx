@@ -47,14 +47,13 @@ export function AboutSection() {
   const headerRef = useScrollAnimation<HTMLHeadingElement>('fade-up-soft', { delay: 100 });
   const subtitleRef = useScrollAnimation<HTMLParagraphElement>('fade-up-soft', { delay: 200 });
   const bioCardRef = useScrollAnimation<HTMLDivElement>('card-entrance', { delay: 300 });
-  const researchCardRef = useScrollAnimation<HTMLDivElement>('card-entrance', { delay: 400 });
-  const educationCardRef = useScrollAnimation<HTMLDivElement>('card-entrance', { delay: 500 });
+  const educationCardRef = useScrollAnimation<HTMLDivElement>('card-entrance', { delay: 400 });
   const contactCardRef = useScrollAnimation<HTMLDivElement>('scale-fade-gentle', { delay: 350 });
   const statusCardRef = useScrollAnimation<HTMLDivElement>('scale-fade-gentle', { delay: 450 });
   const skillsHeaderRef = useScrollAnimation<HTMLHeadingElement>('fade-up-soft', { delay: 200 });
 
   return (
-    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="about" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 ref={headerRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
@@ -76,53 +75,12 @@ export function AboutSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
+                <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {portfolioData.personal.bio}
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Currently serving as {portfolioData.personal.title} at {portfolioData.personal.institution}, 
-                  I am dedicated to advancing the field of artificial intelligence through innovative research 
-                  and practical applications that address real-world challenges.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  My research spans multiple domains including computer vision, machine learning, and AI systems, 
-                  with a particular focus on developing robust solutions for complex environments and scenarios.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Research Interests */}
-            <Card ref={researchCardRef}>
-              <CardHeader>
-                <CardTitle>Research Interests</CardTitle>
-                <CardDescription>
-                  Core areas of research and academic exploration
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {portfolioData.research.interests.map((interest, index) => (
-                    <div key={index} className="space-y-2">
-                      <h4 className="font-medium">{interest}</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {portfolioData.research.keywords
-                          .filter(keyword => 
-                            keyword.toLowerCase().includes(interest.toLowerCase().split(' ')[0]) ||
-                            interest.toLowerCase().includes(keyword.toLowerCase())
-                          )
-                          .slice(0, 3)
-                          .map((keyword, i) => (
-                            <Badge key={i} variant="outline" className="text-xs">
-                              {keyword}
-                            </Badge>
-                          ))
-                        }
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </CardContent>
             </Card>
+
 
             {/* Education */}
             <Card ref={educationCardRef}>
@@ -140,9 +98,9 @@ export function AboutSection() {
                         <h4 className="font-medium">{edu.degree}</h4>
                         <p className="text-sm text-muted-foreground">{edu.institution}</p>
                         <p className="text-sm text-muted-foreground">{edu.location}</p>
-                        {edu.specialization && (
+                        {edu.gpa && (
                           <p className="text-sm text-muted-foreground mt-1">
-                            Specialization: {edu.specialization}
+                            GPA: {edu.gpa}
                           </p>
                         )}
                       </div>
@@ -174,16 +132,16 @@ export function AboutSection() {
                 
                 <div className="space-y-3">
                   <Button 
-                    className="w-full justify-start" 
+                    className="cursor-pointer w-full justify-start border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-primary-foreground hover:border-primary" 
                     variant="outline" 
                     size="sm"
-                    onClick={() => window.open("https://github.com", "_blank")}
+                    onClick={() => window.open(portfolioData.personal.github, "_blank")}
                   >
                     <Github className="mr-2 h-4 w-4" />
                     GitHub Profile
                   </Button>
                   <Button 
-                    className="w-full justify-start" 
+                    className="cursor-pointer w-full justify-start border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-primary-foreground hover:border-primary" 
                     variant="outline" 
                     size="sm"
                     onClick={() => window.open(portfolioData.personal.linkedin, "_blank")}
@@ -191,11 +149,21 @@ export function AboutSection() {
                     <Linkedin className="mr-2 h-4 w-4" />
                     LinkedIn Profile
                   </Button>
-                  <Button className="w-full justify-start" variant="outline" size="sm">
+                  <Button 
+                    className="cursor-pointer w-full justify-start border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-primary-foreground hover:border-primary" 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => window.open(portfolioData.personal.googleScholar, "_blank")}
+                  >
                     <GraduationCap className="mr-2 h-4 w-4" />
                     Google Scholar
                   </Button>
-                  <Button className="w-full justify-start" variant="default" size="sm">
+                  <Button 
+                    className="cursor-pointer w-full justify-start bg-primary hover:bg-primary/90 text-primary-foreground" 
+                    variant="default" 
+                    size="sm"
+                    onClick={() => window.open(portfolioData.personal.cv, "_blank")}
+                  >
                     <Download className="mr-2 h-4 w-4" />
                     Download CV
                   </Button>
@@ -267,6 +235,27 @@ export function AboutSection() {
               );
             })}
           </div>
+        </div>
+
+        {/* Call to action */}
+        <div className="text-center mt-12">
+          <Card className="bg-gradient-to-r from-primary/5 to-accent/5">
+            <CardContent className="pt-6">
+              <h3 className="text-xl font-semibold mb-2">Let&apos;s Work Together</h3>
+              <p className="text-muted-foreground mb-4">
+                I&apos;m always interested in discussing new research opportunities, 
+                collaborations, and innovative projects in AI and computer vision.
+              </p>
+              <Button 
+                size="lg"
+                className="cursor-pointer bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => window.open(`mailto:${portfolioData.personal.email}?subject=Collaboration Inquiry&body=Hi Dr. Patel,%0D%0A%0D%0AI would like to discuss...`, '_blank')}
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                Start a Conversation
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

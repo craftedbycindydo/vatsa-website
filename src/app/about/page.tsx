@@ -1,225 +1,122 @@
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, MapPin, Calendar, Award, Target, Users, BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { MapPin, Calendar, Mail, FileText, Linkedin } from "lucide-react";
+import { FloatingNav } from "@/components/layout/FloatingNav";
+import { portfolioData } from "@/data/portfolio";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            About Dr. Vatsa S. Patel
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Learn more about my academic journey, research interests, and professional experience
-          </p>
-        </div>
-
-        {/* Education */}
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <GraduationCap className="h-5 w-5 text-primary" />
-              Education
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              <div className="border-l-4 border-primary pl-6">
-                <h3 className="text-xl font-semibold text-foreground">Ph.D. in Computer Science</h3>
-                <div className="flex items-center gap-4 mt-2 text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <MapPin className="h-4 w-4" />
-                    <span>University of Dayton</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" />
-                    <span>2024</span>
-                  </div>
-                </div>
-                <p className="mt-3 text-muted-foreground">
-                  Specialized in artificial intelligence, machine learning, and computer vision. 
-                  Research focused on anomaly detection, autonomous systems, signal processing, 
-                  generative AI, and multimodal learning.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <Badge variant="secondary">Artificial Intelligence</Badge>
-                  <Badge variant="secondary">Machine Learning</Badge>
-                  <Badge variant="secondary">Computer Vision</Badge>
-                  <Badge variant="secondary">Signal Processing</Badge>
-                </div>
-              </div>
+    <>
+      <FloatingNav />
+      <div className="min-h-screen pt-24 pb-16">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          {/* Bio Section */}
+          <div className="mb-20">
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/mine2.png"
+                alt="Dr. Vatsa Patel"
+                width={200}
+                height={200}
+                className="rounded-full object-cover shadow-lg"
+                priority
+              />
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Current Position */}
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Award className="h-5 w-5 text-accent" />
-              Current Position
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="border-l-4 border-accent pl-6">
-              <h3 className="text-xl font-semibold text-foreground">Assistant Professor of Computer Science</h3>
-              <div className="flex items-center gap-4 mt-2 text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4" />
-                  <span>Penn State Harrisburg</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Calendar className="h-4 w-4" />
-                  <span>2024 - Present</span>
-                </div>
-              </div>
-              <p className="mt-3 text-muted-foreground">
-                Teaching and conducting research in artificial intelligence, machine learning, and computer vision. 
-                Mentoring undergraduate and graduate students in cutting-edge AI research projects.
+            <h1 className="text-2xl sm:text-3xl font-semibold text-foreground mb-6 border-b border-border/40 pb-4">
+              Exploring Intelligence Through Technology and Imagination
+            </h1>
+            <div className="space-y-5 text-base text-muted-foreground leading-relaxed">
+              <p>
+                Hi there! I'm Dr. Vatsa Patel, an Assistant Professor of Computer Science at Penn State Harrisburg, where I explore how artificial intelligence, machine learning, and computer vision can shape smarter, safer, and more connected systems. I earned my Ph.D. in Computer Science from the University of Dayton, and my passion lies in turning cutting-edge AI research into practical solutions that make an impact.
+              </p>
+              <p>
+                My work focuses on developing intelligent systems that can see, reason, and adapt — spanning traffic analytics, autonomous systems, generative AI, signal processing, and multimodal learning. I love bridging research and design to create technologies that solve real-world challenges across urban safety, biomedical analysis, real estate forecasting, and quantum-enhanced learning.
+              </p>
+              <p>
+                When I'm not immersed in research or mentoring students, you'll probably find me on a field or court. I'm an avid sports enthusiast who enjoys playing cricket, volleyball, soccer, pickleball, badminton, and just about any game that brings people together. For me, both research and sports are about teamwork, curiosity, and creativity — the same spirit that drives innovation.
               </p>
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Research Interests */}
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Target className="h-5 w-5 text-primary" />
-              Research Interests
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-foreground mb-3">Primary Areas</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Artificial Intelligence</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Machine Learning</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Computer Vision</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Anomaly Detection</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-3">Specialized Topics</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Autonomous Systems</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Signal Processing</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Generative AI</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-2 w-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Multimodal Learning</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+          {/* Education */}
+          <div className="mb-10">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-6 border-b border-border/40 pb-4">
+              Education
+            </h2>
+          </div>
 
-        {/* Skills & Expertise */}
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <BookOpen className="h-5 w-5 text-accent" />
-              Technical Expertise
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <h4 className="font-semibold text-foreground mb-3">Programming Languages</h4>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline">Python</Badge>
-                  <Badge variant="outline">R</Badge>
-                  <Badge variant="outline">MATLAB</Badge>
-                  <Badge variant="outline">Java</Badge>
-                  <Badge variant="outline">C++</Badge>
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-3">Frameworks & Tools</h4>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline">TensorFlow</Badge>
-                  <Badge variant="outline">PyTorch</Badge>
-                  <Badge variant="outline">OpenCV</Badge>
-                  <Badge variant="outline">Scikit-learn</Badge>
-                  <Badge variant="outline">Keras</Badge>
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-3">Research Methods</h4>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline">Deep Learning</Badge>
-                  <Badge variant="outline">Neural Networks</Badge>
-                  <Badge variant="outline">Statistical Analysis</Badge>
-                  <Badge variant="outline">Data Mining</Badge>
-                  <Badge variant="outline">Image Processing</Badge>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+          <div className="space-y-5 mb-12">
+            {portfolioData.education.map((edu, index) => (
+              <Card key={index} className="transition-all duration-300 hover:shadow-lg">
+                <CardHeader>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div className="flex-1">
+                      <CardTitle className="text-lg sm:text-xl">
+                        {edu.degree}
+                      </CardTitle>
+                      <CardDescription className="text-base sm:text-lg mt-1">
+                        {edu.institution}
+                      </CardDescription>
+                    </div>
+                    <div className="flex flex-col sm:items-end gap-2">
+                      <Badge variant="outline" className={index === 0 ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"}>
+                        {edu.degree.includes("Ph.D") ? "Doctoral" : "Master's"}
+                      </Badge>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                          <span>{edu.year}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                          <span>{edu.location}</span>
+                        </div>
+                        {edu.gpa && (
+                          <div className="flex items-center gap-1">
+                            <span className={`px-2 py-1 rounded-md text-xs font-medium ${index === 0 ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"}`}>
+                              GPA: {edu.gpa}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
 
-        {/* Teaching & Mentoring */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="h-5 w-5 text-primary" />
-              Teaching & Mentoring
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-4">
-              Passionate about educating the next generation of computer scientists and AI researchers. 
-              I believe in hands-on learning and encourage students to work on real-world problems 
-              that can make a positive impact on society.
+          {/* Call to Action */}
+          <div className="text-center mt-20 pt-10 border-t border-border/40">
+            <p className="text-xl sm:text-2xl font-medium tracking-tight mb-8 text-foreground">
+              Let's connect and build something amazing together.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
-                <h4 className="font-semibold text-foreground mb-2">Undergraduate Courses</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Introduction to Artificial Intelligence</li>
-                  <li>• Machine Learning Fundamentals</li>
-                  <li>• Computer Vision</li>
-                  <li>• Data Structures & Algorithms</li>
-                </ul>
-              </div>
-              <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
-                <h4 className="font-semibold text-foreground mb-2">Graduate Mentoring</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Advanced AI Research Projects</li>
-                  <li>• Thesis Supervision</li>
-                  <li>• Research Publication Guidance</li>
-                  <li>• Conference Presentation Training</li>
-                </ul>
-              </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="gap-2">
+                <Link href={`mailto:${portfolioData.personal.email}`}>
+                  <Mail className="h-5 w-5" />
+                  Email Me
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="gap-2">
+                <Link href={portfolioData.personal.cv} target="_blank" rel="noopener noreferrer">
+                  <FileText className="h-5 w-5" />
+                  Resume
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="gap-2">
+                <Link href={portfolioData.personal.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-5 w-5" />
+                  LinkedIn
+                </Link>
+              </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

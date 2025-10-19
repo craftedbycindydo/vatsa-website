@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function ScrollAnimationScript() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -42,25 +45,32 @@ export function ScrollAnimationScript() {
       }
     );
 
-    // Observe all elements with data-animate attribute
-    const elementsToAnimate = document.querySelectorAll('[data-animate]');
-    elementsToAnimate.forEach((element) => {
-      const animationType = element.getAttribute('data-animate');
-      
-      // Set initial hidden state
-      if (animationType === 'scale-fade-gentle') {
-        element.classList.add('scroll-hidden-scale');
-      } else {
-        element.classList.add('scroll-hidden');
-      }
-      
-      observer.observe(element);
-    });
+    // Small delay to ensure DOM is ready after navigation
+    const timeoutId = setTimeout(() => {
+      // Observe all elements with data-animate attribute
+      const elementsToAnimate = document.querySelectorAll('[data-animate]');
+      elementsToAnimate.forEach((element) => {
+        const animationType = element.getAttribute('data-animate');
+        
+        // Reset any existing animation classes first
+        element.classList.remove(`animate-${animationType}`, 'scroll-hidden', 'scroll-hidden-scale');
+        
+        // Set initial hidden state
+        if (animationType === 'scale-fade-gentle') {
+          element.classList.add('scroll-hidden-scale');
+        } else {
+          element.classList.add('scroll-hidden');
+        }
+        
+        observer.observe(element);
+      });
+    }, 50);
 
     return () => {
+      clearTimeout(timeoutId);
       observer.disconnect();
     };
-  }, []);
+  }, [pathname]); // Re-run when pathname changes
 
   return null;
 }

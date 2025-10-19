@@ -36,9 +36,9 @@ export const themeConfig = [
   {
     name: 'ocean-light' as ThemeColors,
     label: 'Ocean Light',
-    primary: '#0EA5E9',
+    primary: '#2563EB',
     secondary: '#0F172A',
-    accent: '#38BDF8',
+    accent: '#2563EB',
     background: '#F8FAFC',
     foreground: '#0F172A',
     isDark: false
@@ -97,9 +97,9 @@ export const themeConfig = [
   {
     name: 'ocean-dark' as ThemeColors,
     label: 'Ocean Dark',
-    primary: '#38BDF8',
+    primary: '#3B82F6',
     secondary: '#1E293B',
-    accent: '#0EA5E9',
+    accent: '#3B82F6',
     background: '#0F172A',
     foreground: '#F8FAFC',
     isDark: true
@@ -157,14 +157,14 @@ export const themeConfig = [
 ];
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<ThemeColors>('lavender-dark');
+  const [theme, setTheme] = useState<ThemeColors>('ocean-dark');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as ThemeColors;
-    if (savedTheme && (savedTheme === 'lavender-light' || savedTheme === 'lavender-dark')) {
+    if (savedTheme && (savedTheme === 'ocean-light' || savedTheme === 'ocean-dark')) {
       setTheme(savedTheme);
     } else {
-      setTheme('lavender-dark');
+      setTheme('ocean-dark');
     }
   }, []);
 

@@ -12,10 +12,9 @@ export function ContactSection() {
   const subtitleRef = useScrollAnimation<HTMLParagraphElement>('fade-up-soft', { delay: 200 });
   const contactCardRef = useScrollAnimation<HTMLDivElement>('card-entrance', { delay: 300 });
   const collaborationCardRef = useScrollAnimation<HTMLDivElement>('card-entrance', { delay: 400 });
-  const ctaCardRef = useScrollAnimation<HTMLDivElement>('scale-fade-gentle', { delay: 500 });
 
   return (
-    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="contact" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 ref={headerRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
@@ -56,7 +55,7 @@ export function ContactSection() {
 
               <div className="pt-4 space-y-3">
                 <Button 
-                  className="w-full justify-start" 
+                  className="cursor-pointer w-full justify-start" 
                   variant="outline"
                   onClick={() => window.open(`mailto:${portfolioData.personal.email}`, '_blank')}
                 >
@@ -65,7 +64,7 @@ export function ContactSection() {
                 </Button>
                 
                 <Button 
-                  className="w-full justify-start" 
+                  className="cursor-pointer w-full justify-start" 
                   variant="outline"
                   onClick={() => window.open(portfolioData.personal.linkedin, '_blank')}
                 >
@@ -74,7 +73,7 @@ export function ContactSection() {
                 </Button>
                 
                 <Button 
-                  className="w-full justify-start" 
+                  className="cursor-pointer w-full justify-start" 
                   variant="outline"
                   onClick={() => window.open('https://github.com', '_blank')}
                 >
@@ -131,7 +130,7 @@ export function ContactSection() {
 
                 <div className="pt-4">
                   <Button 
-                    className="w-full"
+                    className="cursor-pointer w-full"
                     onClick={() => window.open(`mailto:${portfolioData.personal.email}?subject=Research Collaboration Inquiry`, '_blank')}
                   >
                     <Mail className="mr-2 h-4 w-4" />
@@ -143,25 +142,6 @@ export function ContactSection() {
           </Card>
         </div>
 
-        {/* Call to action */}
-        <div className="text-center mt-12">
-          <Card ref={ctaCardRef} className="bg-gradient-to-r from-primary/5 to-accent/5">
-            <CardContent className="pt-6">
-              <h3 className="text-xl font-semibold mb-2">Let&apos;s Work Together</h3>
-              <p className="text-muted-foreground mb-4">
-                I&apos;m always interested in discussing new research opportunities, 
-                collaborations, and innovative projects in AI and computer vision.
-              </p>
-              <Button 
-                size="lg"
-                onClick={() => window.open(`mailto:${portfolioData.personal.email}?subject=Collaboration Inquiry&body=Hi Dr. Patel,%0D%0A%0D%0AI would like to discuss...`, '_blank')}
-              >
-                <Mail className="mr-2 h-4 w-4" />
-                Start a Conversation
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );

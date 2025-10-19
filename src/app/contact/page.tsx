@@ -61,7 +61,7 @@ export default function Contact() {
                     <div className="font-semibold text-foreground">Email</div>
                     <a 
                       href="mailto:vsp5275@psu.edu" 
-                      className="text-primary hover:text-primary/80 transition-colors"
+                      className="cursor-pointer text-primary hover:text-primary/80 transition-colors"
                     >
                       vsp5275@psu.edu
                     </a>
@@ -92,7 +92,7 @@ export default function Contact() {
                       href="https://www.linkedin.com/in/vatsa-patel" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                      className="cursor-pointer text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
                     >
                       Connect with me
                       <ExternalLink className="h-4 w-4" />
@@ -110,7 +110,7 @@ export default function Contact() {
                       href="https://harrisburg.psu.edu/faculty-and-staff/vatsa-patel" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                      className="cursor-pointer text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
                     >
                       View Faculty Page
                       <ExternalLink className="h-4 w-4" />
@@ -207,7 +207,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button type="submit" className="w-full" size="lg">
+                <Button type="submit" className="cursor-pointer w-full" size="lg">
                   <Send className="h-4 w-4 mr-2" />
                   Send Message
                 </Button>
