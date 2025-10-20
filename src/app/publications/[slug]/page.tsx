@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Calendar, Users, BookOpen, Target, Award, ArrowLeft, Lightbulb, Database, BarChart3, TrendingUp, CheckCircle2, Quote, ArrowRight } from "lucide-react";
+import { ExternalLink, BookOpen, Target, Award, ArrowLeft, Lightbulb, Database, BarChart3, TrendingUp, CheckCircle2, Quote, ArrowRight } from "lucide-react";
 import { use } from "react";
 
 interface PublicationPageProps {

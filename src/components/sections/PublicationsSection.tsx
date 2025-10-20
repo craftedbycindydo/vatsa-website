@@ -2,10 +2,11 @@
 
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Users, BookOpen, ChevronLeft, ChevronRight, Eye, Code2 } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight, Code2 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -272,18 +273,6 @@ export function PublicationsSection() {
     }
   }, [activeFilter]);
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'journal':
-        return 'bg-primary/10 text-primary';
-      case 'conference':
-        return 'bg-accent/10 text-accent';
-      default:
-        return 'bg-muted text-muted-foreground';
-    }
-  };
-
-
   return (
     <section id="research" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
@@ -374,12 +363,13 @@ export function PublicationsSection() {
             >
               <div className="h-52 bg-gradient-to-br from-primary/5 to-accent/5 rounded-t-lg relative overflow-hidden flex items-center justify-center">
                 {item.image ? (
-                  <img 
+                  <Image 
                     src={item.image} 
                     alt={item.title}
-                    className="w-full h-full object-cover relative z-0 pointer-events-none select-none"
+                    fill
+                    className="object-cover relative z-0 pointer-events-none select-none"
                     style={{ objectPosition: 'center 60%' }}
-                    draggable="false"
+                    draggable={false}
                   />
                 ) : (
                   <>

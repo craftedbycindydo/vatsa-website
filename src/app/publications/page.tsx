@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, BookOpen, ArrowLeft, Calendar } from "lucide-react";
+import { BookOpen, ArrowLeft, Calendar } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -19,7 +19,7 @@ export default function Publications() {
       category: pub.type === 'journal' ? 'Publications' : 'Research',
       tags: pub.keywords || pub.abstract.split(' ').filter(word => word.length > 4).slice(0, 3)
     }));
-  }, []);
+  }, [publications]);
 
   // Filter categories - Domain/Application-Based
   const categories = [

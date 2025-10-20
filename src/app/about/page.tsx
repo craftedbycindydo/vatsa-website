@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { MapPin, Calendar, Mail, FileText, Linkedin } from "lucide-react";
 import { FloatingNav } from "@/components/layout/FloatingNav";
 import { portfolioData } from "@/data/portfolio";
@@ -30,13 +30,13 @@ export default function About() {
             </h1>
             <div className="space-y-5 text-base text-muted-foreground leading-relaxed">
               <p>
-                Hi there! I'm Dr. Vatsa Patel, an Assistant Professor of Computer Science at Penn State Harrisburg, where I explore how artificial intelligence, machine learning, and computer vision can shape smarter, safer, and more connected systems. I earned my Ph.D. in Computer Science from the University of Dayton, and my passion lies in turning cutting-edge AI research into practical solutions that make an impact.
+                Hi there! I&apos;m Dr. Vatsa Patel, an Assistant Professor of Computer Science at Penn State Harrisburg, where I explore how artificial intelligence, machine learning, and computer vision can shape smarter, safer, and more connected systems. I earned my Ph.D. in Computer Science from the University of Dayton, and my passion lies in turning cutting-edge AI research into practical solutions that make an impact.
               </p>
               <p>
                 My work focuses on developing intelligent systems that can see, reason, and adapt — spanning traffic analytics, autonomous systems, generative AI, signal processing, and multimodal learning. I love bridging research and design to create technologies that solve real-world challenges across urban safety, biomedical analysis, real estate forecasting, and quantum-enhanced learning.
               </p>
               <p>
-                When I'm not immersed in research or mentoring students, you'll probably find me on a field or court. I'm an avid sports enthusiast who enjoys playing cricket, volleyball, soccer, pickleball, badminton, and just about any game that brings people together. For me, both research and sports are about teamwork, curiosity, and creativity — the same spirit that drives innovation.
+                When I&apos;m not immersed in research or mentoring students, you&apos;ll probably find me on a field or court. I&apos;m an avid sports enthusiast who enjoys playing cricket, volleyball, soccer, pickleball, badminton, and just about any game that brings people together. For me, both research and sports are about teamwork, curiosity, and creativity — the same spirit that drives innovation.
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function About() {
           {/* Call to Action */}
           <div className="text-center mt-20 pt-10 border-t border-border/40">
             <p className="text-xl sm:text-2xl font-medium tracking-tight mb-8 text-foreground">
-              Let's connect and build something amazing together.
+              Let&apos;s connect and build something amazing together.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="gap-2">
